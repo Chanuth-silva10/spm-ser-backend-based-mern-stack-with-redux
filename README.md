@@ -1,19 +1,13 @@
-# SPM_SER035
-# Our E-commerce web application
 
-## Notes
+# Our E-commerce web application (SPM_SER035)
 
-- **M** = MongoDB (We'll use Mongoose to make it easier for Node.js to work with MongoDB, and we'll use MongoDB Atlas = MongoDB database, but cloud).
-- **E** = Express (makes it easier to work with Node.js. We'll use `cors` middleware to access other servers outside our server).
-- **R** = React (for the frontend. We'll use `bootstrap` for styling, `react-router-dom` for React routes, `react-datepicker` for React Datepicker component, and `axios` to connect to the backend).
-- **N** = Node.js (for the server. We'll use `dotenv` to load environment variables from an .env file into `process.env`, and `nodemon` to make the app auto-restart when you edit/save files).
 
 Choco web App functionality and branches information:
 
 - IT20074418 => Chanuth => Product Managemen & User Management 
 - IT20166038 => Shalani => Category Management & Brand Management
 - IT20069186 => Imasha  => Order Management
-- IT20083328 => Ihill   =>  IT20083328 & Review Management
+- IT20083328 => Ihill   =>  Promotion Management & Review Management
 
 To just get it running after you `git clone`, set up [GIT URL](https://github.com/Chanuth10/SPM_SER035.git), and then follow these CLI steps:
 
@@ -34,4 +28,11 @@ npm ren dev or npm start
 
 </details>
 
-<summary><span style="font-size:x-large"><a href="https://github.com/hchiam/learning-eslint-google">ESLint</a> Setup (Optional)</span></summary>
+## Notes
+
+- **M** = MongoDB (We'll use Mongoose to make it easier for Node.js to work with MongoDB, and we'll use MongoDB Atlas = MongoDB database, but cloud).
+- **E** = Express (makes it easier to work with Node.js. We'll use `cors` middleware to access other servers outside our server).
+- **R** = React (for the frontend. We'll use `bootstrap` for styling, `react-router-dom` for React routes, `react-datepicker` for React Datepicker component, and `axios` to connect to the backend).
+- **N** = Node.js (for the server. We'll use `dotenv` to load environment variables from an .env file into `process.env`, and `nodemon` to make the app auto-restart when you edit/save files).
+
+
