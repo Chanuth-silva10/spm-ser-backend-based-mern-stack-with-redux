@@ -23,7 +23,7 @@ To develop it yourself from scratch, follow CLI steps below, and copy the code f
 cd backend
 npm install express cors mongoose dotenv
 npm install -g nodemon
-npm ren dev or npm start 
+npm ren dev `or`  npm start 
 ```
 
 </details>
