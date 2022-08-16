@@ -32,14 +32,34 @@ npm ren dev `or`  npm start
 <summary><span style="font-size:x-large">Useful Git Command</span></summary>
 
 <h1>Git BRANCH</h1>
-```bash
-git branch   # To see `local branches
-git branch -r  # To see remote branches
-git checkout -b my-branch-name   # Create a New Branch
-git checkout --track origin/my-branch-name # For Checkout remote branch(Please Only go to the your branch)
-git push -u origin my-branch-name # Push to a Branch
-git push # If your local branch already exists on the remote, run this command
-git fetch origin # Get all branches from created remote repo
+
+<b>To see `local branches</b>
+```
+git branch
+```
+<b>To see remote branches</b>
+```
+git branch -r 
+```
+<b>Create a New Branch</b>
+```
+git checkout -b my-branch-name
+```
+<b>For Checkout remote branch(Please Only go to the your branch)</b>
+```
+git checkout --track origin/my-branch-name 
+```
+<b>Push to a Branch</b>
+```
+git push -u origin my-branch-name
+```
+<b>If your local branch already exists on the remote, run this command</b>
+```
+git push 
+```
+<b>Download remote branch</b>
+```
+git checkout -t origin/remote_branch
 ```
 
 </details>
