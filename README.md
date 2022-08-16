@@ -64,6 +64,37 @@ git checkout -t origin/remote_branch
 
 </details>
 
+<details>
+<summary><span style="font-size:x-large">How to Put your work into the git Repo</span></summary>
+
+
+<b>Firstly You are working Please Checkout your branch</b>
+```
+git checkout  Your-branch-name
+```
+<b>After Checkout your branch pull the current information from development branch</b>
+```
+git pull origin/development
+```
+<b>Now you are update your details into the your branch. After update details add the details stage area</b>
+```
+git add .
+```
+<b>Give the commit message</b>
+```
+git commit -m "Your meassge "
+```
+<b>Push to Your Branch</b>
+```
+git push -u origin Your-branch-name
+```
+<b>If your local branch already exists on the remote, run this command</b>
+```
+git push 
+```
+
+</details>
+
 ## Notes
 
 - **M** = MongoDB (We'll use Mongoose to make it easier for Node.js to work with MongoDB, and we'll use MongoDB Atlas = MongoDB database, but cloud).
