@@ -7,7 +7,7 @@ Choco web App functionality and branches information:
 - IT20074418 => Chanuth => Product Managemen & User Management 
 - IT20166038 => Shalani => Category Management & Brand Management
 - IT20069186 => Imasha  => Order Management
-- IT20083328 => Ihill   =>  Promotion Management & Review Management
+- IT20083328 => Ihill =>  Promotion Management & Review Management
 
 To just get it running after you `git clone`, set up [GIT URL](https://github.com/Chanuth10/SPM_SER035.git), and then follow these CLI steps:
 
