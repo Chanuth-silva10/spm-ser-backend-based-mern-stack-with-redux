@@ -28,6 +28,22 @@ npm ren dev `or`  npm start
 
 </details>
 
+<details>
+<summary><span style="font-size:x-large">Useful Git Command</span></summary>
+
+<h1>Git BRANCH</h1>
+```bash
+git branch   # To see `local branches
+git branch -r  # To see remote branches
+git checkout -b my-branch-name   # Create a New Branch
+git checkout --track origin/my-branch-name # For Checkout remote branch(Please Only go to the your branch)
+git push -u origin my-branch-name # Push to a Branch
+git push # If your local branch already exists on the remote, run this command
+git fetch origin # Get all branches from created remote repo
+```
+
+</details>
+
 ## Notes
 
 - **M** = MongoDB (We'll use Mongoose to make it easier for Node.js to work with MongoDB, and we'll use MongoDB Atlas = MongoDB database, but cloud).
