@@ -1,5 +1,5 @@
 
-# Our E-commerce web application (SPM_SER035)
+# Our E-commerce web application - Backend (SPM_SER035)
 
 
 Choco web App functionality and branches information:
@@ -9,7 +9,7 @@ Choco web App functionality and branches information:
 - IT20069186 => Imasha  => Order Management
 - IT20083328 => Ihill   =>  Promotion Management & Review Management
 
-To just get it running after you `git clone`, set up [GIT URL](https://github.com/Chanuth10/SPM_SER035.git), and then follow these CLI steps:
+To just get it running after you `git clone`, set up [GIT URL](https://github.com/Chanuth10/SPM_SER035_BACKEND.git), and then follow these CLI steps:
 
 
 To develop it yourself from scratch, follow CLI steps below, and copy the code from this repo to fill in the files you create.
