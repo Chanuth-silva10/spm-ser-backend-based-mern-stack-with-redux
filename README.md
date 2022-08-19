@@ -4,7 +4,7 @@
 
 Choco web App functionality and branches information:
 
-- IT20074418 => Chanuth => Product Managemen & User Management 
+- IT20074418 =>  Chanuth => Product Managemen & User Management 
 - IT20166038 => Shalani => Category Management & Brand Management
 - IT20069186 => Imasha  => Order Management
 - IT20083328 => Ihill   =>  Promotion Management & Review Management
