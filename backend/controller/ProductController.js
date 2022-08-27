@@ -1,5 +1,5 @@
-exports.products = (req,res) => {
+exports.getAllProducts = (req, res) => {
     res.status(200).json({
-       message:"Prodcuts is Working fine."
-    })
-}
+      message: "Router is Working fine.",
+    });
+  };
