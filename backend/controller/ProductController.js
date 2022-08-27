@@ -11,8 +11,12 @@ exports.createProduct = async (req, res, next) => {
   });
 };
 
-exports.getAllProducts = (req, res) => {
+// Get All Product (Admin)
+exports.getAllProducts = async (req, res, next) => {
+  const products = await Product.find();
+
   res.status(200).json({
-    message: "Router is Working fine.",
+    success: true,
+    products,
   });
 };
