@@ -52,17 +52,25 @@ exports.deleteProduct = async (req, res, next) => {
     });
   }
 
-  // Deleting images from cloudinary
-  for (let i = 0; 1 < product.images.length; i++) {
-    const result = await cloudinary.v2.uploader.destroy(
-      product.images[i].public_id
-    );
-  }
-
   await product.remove();
 
   res.status(200).json({
     success: true,
     message: "Product deleted succesfully",
+  });
+};
+
+// single Product details
+exports.getSingleProduct = async (req, res, next) => {
+  const product = await Product.findById(req.params.id);
+  if (!product) {
+    return res.status(500).json({
+      success: false,
+      message: "Product is not found with this id",
+    });
+  }
+  res.status(200).json({
+    success: true,
+    product,
   });
 };
