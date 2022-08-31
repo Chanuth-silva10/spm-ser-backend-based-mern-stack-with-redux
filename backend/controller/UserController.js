@@ -20,7 +20,6 @@ exports.createUser = catchAsyncErrors(async (req, res, next) => {
   });
 
   sendToken(user, 201, res);
-
 });
 
 // Login User
@@ -32,7 +31,6 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
   }
 
   const user = await User.findOne({ email }).select("+password");
- 
 
   if (!user) {
     return next(
@@ -52,18 +50,18 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
 
 //  Log out user
 exports.logoutUser = catchAsyncErrors(async (req, res, next) => {
-    res.cookie("token", null, {
-      expires: new Date(Date.now()),
-      httpOnly: true,
-    });
-  
-    res.status(200).json({
-      success: true,
-      message: "Log out success",
-    });
+  res.cookie("token", null, {
+    expires: new Date(Date.now()),
+    httpOnly: true,
   });
 
-  // Forgot password
+  res.status(200).json({
+    success: true,
+    message: "Log out success",
+  });
+});
+
+// Forgot password
 exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
   const user = await User.findOne({ email: req.body.email });
 
@@ -151,4 +149,25 @@ exports.userDetails = catchAsyncErrors(async (req, res, next) => {
     success: true,
     user,
   });
+});
+
+// Update User Password
+exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
+  const user = await User.findById(req.user.id).select("+password");
+
+  const isPasswordMatched = await user.comparePassword(req.body.oldPassword);
+
+  if (!isPasswordMatched) {
+    return next(new ErrorHandler("Old Password is incorrect", 400));
+  }
+
+  if (req.body.newPassword !== req.body.confirmPassword) {
+    return next(new ErrorHandler("Password not matched with each other", 400));
+  }
+
+  user.password = req.body.newPassword;
+
+  await user.save();
+
+  sendToken(user, 200, res);
 });
