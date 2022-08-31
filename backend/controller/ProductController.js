@@ -2,7 +2,6 @@ const Product = require("../models/ProductModel.js");
 const ErrorHandler = require("../utils/ErrorHandler.js");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
-
 // create Product
 exports.createProduct = catchAsyncErrors(async (req, res, next) => {
   const product = await Product.create(req.body);
@@ -13,7 +12,7 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-// Get All Product 
+// Get All Product
 exports.getAllProducts = catchAsyncErrors(async (req, res, next) => {
   const products = await Product.find();
 
@@ -48,7 +47,6 @@ exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
   if (!product) {
     return next(new ErrorHandler("Product is not found with this id", 404));
   }
-
 
   await product.remove();
 
