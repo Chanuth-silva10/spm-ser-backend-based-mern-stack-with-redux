@@ -6,8 +6,11 @@ app.use(express.json());
 
 // Route imports
 const product = require("./routes/ProductRoute");
+const user = require("./routes/UserRoute");
 
 app.use("/api/v1",product);
+
+app.use("/api/v1",user);
 
 app.use(ErrorHandler);
 
