@@ -12,13 +12,14 @@ exports.createUser = catchAsyncErrors(async (req, res, next) => {
     password,
     avatar: {
       public_id: "Profile",
-      url: "https://www.pexels.com/search/profile%20picture/",
-    },
+      url: "https://www.pexels.com/search/profile%20picture/"
+    }
   });
 
-
-  res.status(500).json({
-    success: false,
-    message: error.message,
+  const token = user.getJwtToken();
+  console.log(token);
+  res.status(201).json({
+    success: true,
+    token
   });
 });
