@@ -23,6 +23,10 @@ const productSchema = new mongoose.Schema({
   size: {
     type: String,
   },
+  ratings: {
+    type: Number,
+    default: 0,
+  },
   images: [
     {
       public_id: {
@@ -46,8 +50,8 @@ const productSchema = new mongoose.Schema({
   },
   createAt: {
     type: Date,
-    default: Date.now()
-  }
+    default: Date.now(),
+  },
 });
 
 module.exports = mongoose.model("Product", productSchema);
