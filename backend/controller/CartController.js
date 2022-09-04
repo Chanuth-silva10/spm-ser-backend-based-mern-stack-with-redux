@@ -50,3 +50,19 @@ exports.getCartData = catchAsyncErrors(async (req, res, next) => {
     cartData,
   });
 });
+
+// remove Cart Data
+exports.removeCartData = catchAsyncErrors(async (req, res, next) => {
+  const cartData = await Cart.findById(req.params.id);
+
+  if (!cartData) {
+    return next(new ErrorHandler("Items is not found with this id", 404));
+  }
+
+  await cartData.remove();
+
+  res.status(200).json({
+    success: true,
+    message: "Item removed from cart",
+  });
+});
