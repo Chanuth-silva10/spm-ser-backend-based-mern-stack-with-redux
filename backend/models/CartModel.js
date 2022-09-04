@@ -11,7 +11,6 @@ const cartSchema = new mongoose.Schema({
   },
   productImage: {
     type: String,
-    required: [true, "Please enter your product image"],
   },
   quantity: {
     type: Number,
