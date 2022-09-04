@@ -19,3 +19,13 @@ exports.addToWishlist = catchAsyncErrors(async (req, res, next) => {
     wishList,
   });
 });
+
+// get wishlist Data
+exports.getWishlistData = catchAsyncErrors(async (req, res, next) => {
+  const wishlistData = await Wishlist.find({ userId: "uid1" }); //req.user.id
+
+  res.status(200).json({
+    success: true,
+    wishlistData,
+  });
+});
