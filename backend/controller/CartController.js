@@ -41,3 +41,12 @@ exports.updateCart = catchAsyncErrors(async (req, res, next) => {
     quantity,
   });
 });
+
+// get Cart Data
+exports.getCartData = catchAsyncErrors(async (req, res, next) => {
+  const cartData = await Cart.find({ userId: "uid1" }); //req.user.id
+  res.status(200).json({
+    success: true,
+    cartData,
+  });
+});
