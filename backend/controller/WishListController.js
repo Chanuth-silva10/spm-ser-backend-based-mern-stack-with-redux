@@ -29,3 +29,19 @@ exports.getWishlistData = catchAsyncErrors(async (req, res, next) => {
     wishlistData,
   });
 });
+
+// remove wishlistData
+exports.removeWishlistData = catchAsyncErrors(async (req, res, next) => {
+  const wishlistData = await Wishlist.findById(req.params.id);
+
+  if (!wishlistData) {
+    return next(new ErrorHandler("No wishlistData found with this id", 404));
+  }
+
+  await wishlistData.remove();
+
+  res.status(200).json({
+    success: true,
+    message: "Item removed from wishlist",
+  });
+});
