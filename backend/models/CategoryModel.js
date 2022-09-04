@@ -31,3 +31,5 @@ const catergorySchema = new mongoose.Schema(
     timeStamp: true,
   }
 );
+
+module.exports = mongoose.model("catergory", catergorySchema);
