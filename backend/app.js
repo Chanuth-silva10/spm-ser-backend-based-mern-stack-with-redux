@@ -17,7 +17,6 @@ const product = require("./routes/ProductRoute");
 const user = require("./routes/UserRoute");
 
 app.use("/api/v2", product);
-
 app.use("/api/v2", user);
 
 // it's for errorHandeling
