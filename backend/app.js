@@ -18,12 +18,14 @@ app.use(fileUpload({ useTempFiles: true }));
 const product = require("./routes/ProductRoute");
 const user = require("./routes/UserRoute");
 const catergory = require("./routes/CategoryRoute");
+const cart = require("./routes/CartRoute");
+const wishlist = require("./routes/WishListRoute");
 
 app.use("/api/v2", product);
-
 app.use("/api/v2", user);
-
 app.use("/api/v2", catergory);
+app.use("/api/v2", cart);
+app.use("/api/v2", wishlist);
 
 // it's for errorHandeling
 app.use(ErrorHandler);
