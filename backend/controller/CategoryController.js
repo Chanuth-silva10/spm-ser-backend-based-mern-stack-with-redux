@@ -24,3 +24,9 @@ exports.addCatergory = catchAsyncErrors(async (req, res) => {
 
   res.status(200).json({ success: true, catergory });
 });
+
+//get category
+exports.getCatergory = catchAsyncErrors(async(req,res) => {
+  const catergory = await Catergory.find()
+  res.status(200).json({ success:true, catergory});
+})
