@@ -56,3 +56,21 @@ exports.updateCatagory = catchAsyncErrors(async (req, res, next) => {
 
   res.status(200).json({ success: true, updatedCategory });
 });
+
+//remove category
+
+exports.removeCategory = catchAsyncErrors(async (req, res, next) => {
+  const id = req.params.id;
+
+  const categoryItem = await Catergory.findById(id);
+
+  if (!categoryItem) {
+    return next(new ErrorHandler("Category item not found!", 404));
+  }
+
+  await categoryItem.remove();
+
+  res
+    .status(200)
+    .json({ success: true, message: "Item removed from the category" });
+});
