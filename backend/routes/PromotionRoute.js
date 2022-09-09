@@ -7,7 +7,8 @@ const{
     deletepromo,
     filterpromobystatus,
     filterpromobytype,
-    filterpromobyboth
+    filterpromobyboth,
+    findonepromo
 } = require('../controller/PromotionController')
 
 
@@ -16,6 +17,7 @@ router.route('/promotion').post(createpromo)
 router.route('/promotion/:id').put(updatepromo)
 router.route('/promotion/:id/:status').patch(updatepromostatus)
 router.route('/promotion/:id').delete(deletepromo)
+router.route('/promotion/search/:searchID').get(findonepromo)
 router.route('/promotion/report/bystatus/:status').get(filterpromobystatus)
 router.route('/promotion/report/bytype/:type').get(filterpromobytype)
 router.route('/promotion/report/byboth/:status/:type').get(filterpromobyboth)

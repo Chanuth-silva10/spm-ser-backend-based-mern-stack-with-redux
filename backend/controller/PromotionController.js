@@ -1,6 +1,10 @@
 const Promotion = require('../models/PromotionModel.js')
 
 exports.createpromo = async(req,res)=>{
+    const checkval = await Promotion.findOne({ID:req.body.promoid})
+    if(checkval){
+        return res.send({message:'Promotion ID already taken'})
+    }
     let validation = validateinput(req.body)
     if(validation){
         return res.send({message:validation})
@@ -40,7 +44,7 @@ exports.updatepromo = async(req,res)=>{
     let OtherNotes = on
     let Type =req.body.type
     let Discount = req.body.discount
-    let Conditions = req.body.condition
+    let Conditions = req.body.conditions
 
     await Promotion.findByIdAndUpdate(id,{ID,Name,OtherNotes,Type,Discount,Conditions})
     .then(res.send({message:'Success'}))
@@ -66,7 +70,9 @@ exports.findallpromo = async(req,res)=>{
 }
 
 exports.findonepromo = async(req,res)=>{
-
+    let searchID = req.params.searchID
+    await Promotion.find({ID:searchID}).then(data=>{
+    res.send(data)})
 }
 
 exports.filterpromobystatus = async(req,res)=>{
@@ -89,7 +95,7 @@ exports.filterpromobyboth = async(req,res)=>{
 function validateinput(values){
     const IDpattern = /^[a-zA-Z0-9]{0,6}$/
     const Namepattern = /^[a-zA-Z\s]+$/
-    const Discountpattern = /^[0-9]{0,2}%$/
+    const Discountpattern = /^[0-9]{1,2}%$/
     const Conditionspattern = /^[a-zA-Z0-9\s]+$/
 
     let ID = values.promoid
