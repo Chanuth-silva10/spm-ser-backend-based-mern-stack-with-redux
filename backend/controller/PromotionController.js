@@ -26,8 +26,23 @@ exports.createpromo = async(req,res)=>{
 }
 
 exports.updatepromo = async(req,res)=>{
+    let validation = validateinput(req.body)
+    if(validation){
+        return res.send({message:validation})
+    }
     let id = req.params.id
-    await Promotion.findByIdAndUpdate(id,req.body)
+    let ID = req.body.promoid
+    let Name = req.body.name
+    let on = req.body.othernotes
+    if(!req.body.othernotes){
+        on = 'none'
+    }
+    let OtherNotes = on
+    let Type =req.body.type
+    let Discount = req.body.discount
+    let Conditions = req.body.condition
+
+    await Promotion.findByIdAndUpdate(id,{ID,Name,OtherNotes,Type,Discount,Conditions})
     .then(res.send({message:'Success'}))
 }
 
@@ -40,7 +55,6 @@ exports.updatepromostatus = async(req,res) =>{
 
 exports.deletepromo = async(req,res)=>{
     let id = req.params.id
-    console.log(id)
     await Promotion.findByIdAndDelete(id)
     .then(res.send({message:'Success'}))
 }
@@ -74,8 +88,8 @@ exports.filterpromobyboth = async(req,res)=>{
 
 function validateinput(values){
     const IDpattern = /^[a-zA-Z0-9]{0,6}$/
-    const Namepattern = /^[a-zA-Z\s]{0,20}$/
-    const Discountpattern = /^[0-9]+%{0,3}$/
+    const Namepattern = /^[a-zA-Z\s]+$/
+    const Discountpattern = /^[0-9]{0,2}%$/
     const Conditionspattern = /^[a-zA-Z0-9\s]+$/
 
     let ID = values.promoid
@@ -103,10 +117,10 @@ function validateinput(values){
         return 'ID can only contain letters and numbers up to 6 characters'
     }
     if(!Namepattern.test(Name)){
-        return 'Name can only contain letters upto 20 characters'
+        return 'Name can only contain letters'
     }
     if(!Discountpattern.test(Discount)){
-        return 'Discount can only contain valid percentage value'
+        return 'Discount can only contain valid percentage value(XX%)'
     }
     if(!Conditionspattern.test(Conditions)){
         return 'Conditions can only contain letters and numbers'
