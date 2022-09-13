@@ -128,7 +128,7 @@ exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
     );
   }
 
-  await product.remove();
+  await Product.remove();
 
   res.status(200).json({
     success: true,
@@ -251,4 +251,4 @@ exports.deleteReview = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-// 
+//
