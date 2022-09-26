@@ -128,7 +128,7 @@ exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
     );
   }
 
-  await Product.remove();
+  await product.remove();
 
   res.status(200).json({
     success: true,
