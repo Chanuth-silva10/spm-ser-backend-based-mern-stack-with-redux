@@ -1,35 +1,37 @@
-/** @format */
-
 const mongoose = require("mongoose");
 
-const catergorySchema = new mongoose.Schema(
-  {
-    catergoryName: {
-      type: String,
-      required: [true, "Please Enter Catergory Name"],
-    },
-
-    catergoryId: {
-      type: String,
-      required: [true, "Please Enter Catergory ID"],
-    },
-
-    catergoryDescripition: {
-      type: String,
-      required: [true, "Please Enter Catergory Descripition"],
-    },
-
-    catergoryImage: {
-      type: String,
-    },
-
-    productsInCatergory: {
-      type: [],
-    },
+const CategorySchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: [true, "Please enter a name of a Category"],
+    trim: true,
+    maxLength: [20, "Category name not exceed than 20 characters"],
   },
-  {
-    timeStamp: true,
-  }
-);
+  description: {
+    type: String,
+    required: [true, "Please add a description of your Category"],
+    maxlength: [4000, "Description is can not exceed than 4000 characters"],
+  },
+  images: [
+    {
+      public_id: {
+        type: String,
+        required: true,
+      },
+      url: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
+  user: {
+    type: mongoose.Schema.ObjectId,
+    ref: "User",
+  },
+  createAt: {
+    type: Date,
+    default: Date.now(),
+  },
+});
 
-module.exports = mongoose.model("catergory", catergorySchema);
+module.exports = mongoose.model("Category", CategorySchema);
