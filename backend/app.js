@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 const fileUpload = require("express-fileupload");
 const bodyParser = require("body-parser");
 const path = require("path");
+const cors = require("cors");
 
 app.use(express.json());
 app.use(cookieParser());
@@ -17,15 +18,21 @@ app.use(fileUpload({ useTempFiles: true }));
 // Route imports
 const product = require("./routes/ProductRoute");
 const user = require("./routes/UserRoute");
-const category = require("./routes/CategoryRoute");
+
 const cart = require("./routes/CartRoute");
 const wishlist = require("./routes/WishListRoute");
-//testing
+const category = require("./routes/CategoryRoute");
+
+const promotion = require("./routes/PromotionRoute");
+const review = require("./routes/ReviewRoute");
 app.use("/api/v2", product);
 app.use("/api/v2", user);
-app.use("/api/v2", category);
 app.use("/api/v2", cart);
 app.use("/api/v2", wishlist);
+app.use("/", promotion);
+app.use("/", review);
+app.use("/api/v2", category);
+
 
 // it's for errorHandeling
 app.use(ErrorHandler);
