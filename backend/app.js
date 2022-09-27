@@ -17,13 +17,13 @@ app.use(fileUpload({ useTempFiles: true }));
 // Route imports
 const product = require("./routes/ProductRoute");
 const user = require("./routes/UserRoute");
-const catergory = require("./routes/CategoryRoute");
+const category = require("./routes/CategoryRoute");
 const cart = require("./routes/CartRoute");
 const wishlist = require("./routes/WishListRoute");
 //testing
 app.use("/api/v2", product);
 app.use("/api/v2", user);
-app.use("/api/v2", catergory);
+app.use("/api/v2", category);
 app.use("/api/v2", cart);
 app.use("/api/v2", wishlist);
 
