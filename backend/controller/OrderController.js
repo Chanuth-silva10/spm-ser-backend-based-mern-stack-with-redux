@@ -1,7 +1,7 @@
-const Order = require("../../../../MERN-Ecommerce-store/backend/models/OrderModel");
-const ErrorHandler = require("../../../../MERN-Ecommerce-store/backend/utils/ErrorHandler.js");
-const catchAsyncErrors = require("../../../../MERN-Ecommerce-store/backend/middleware/catchAsyncErrors");
-const Product = require("../../../../MERN-Ecommerce-store/backend/models/ProductModel");
+const Order = require("../models/OrderModel");
+const ErrorHandler = require("../utils/ErrorHandler.js");
+const catchAsyncErrors = require("../middleware/catchAsyncErrors");
+const Product = require("../models/ProductModel.js");
 
 // Create Order
 exports.createOrder = catchAsyncErrors(async (req, res, next) => {
@@ -14,6 +14,7 @@ exports.createOrder = catchAsyncErrors(async (req, res, next) => {
     shippingPrice,
     totalPrice,
   } = req.body;
+  
 
   const order = await Order.create({
     shippingInfo,
