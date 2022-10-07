@@ -1,7 +1,7 @@
 const Order = require("../models/OrderModel");
 const ErrorHandler = require("../utils/ErrorHandler.js");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
-const Product = require("../models/ProductModel.js");
+const Product = require("../models/ProductModel");
 
 // Create Order
 exports.createOrder = catchAsyncErrors(async (req, res, next) => {
@@ -14,7 +14,6 @@ exports.createOrder = catchAsyncErrors(async (req, res, next) => {
     shippingPrice,
     totalPrice,
   } = req.body;
-  
 
   const order = await Order.create({
     shippingInfo,
@@ -89,11 +88,11 @@ exports.updateAdminOrder = catchAsyncErrors(async (req, res, next) => {
     return next(new ErrorHandler("You have already delivered this order", 400));
   }
 
-  if (req.body.status === "Shipped") {
-    order.orderItems.forEach(async (o) => {
-      await updateStock(o.product, o.quantity);
-    });
-  }
+  // if (req.body.status === "Shipped") {
+  //   order.orderItems.forEach(async (o) => {
+  //     await updateStock(o.productId, o.quantity);
+  //   });
+  // }
   order.orderStatus = req.body.status;
 
   if (req.body.status === "Delivered") {
@@ -108,6 +107,7 @@ exports.updateAdminOrder = catchAsyncErrors(async (req, res, next) => {
 
 async function updateStock(id, quantity) {
   const product = await Product.findById(id);
+  console.log(product);
 
   product.Stock -= quantity;
 
