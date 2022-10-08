@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const reviewSchema = new mongoose.Schema({
   ID: {
     type: String,
-    default: "asNone",
+    default: "None",
   },
   Rating: {
     type: String,

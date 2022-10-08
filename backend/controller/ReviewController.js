@@ -40,3 +40,18 @@ exports.findonereview = async (req, res) => {
     res.send(data);
   });
 };
+exports.filterbyRating = async (req, res) => {
+  let rating = req.params.rating;
+  await Review.find({ Rating: rating }).then((data) => {
+    res.send(data);
+  });
+};
+
+exports.filterbyRatingandID = async (req, res) => {
+  let rating = req.params.rating;
+  let searchID = req.params.searchID;
+  console.log("Iwork");
+  await Review.find({ ID: searchID, Rating: rating }).then((data) => {
+    res.send(data);
+  });
+};
