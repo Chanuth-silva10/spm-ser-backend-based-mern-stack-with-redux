@@ -10,17 +10,17 @@ const {
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 const router = express.Router();
 
-router.route("/categories").get(getAllBrands);
+router.route("/brands").get(getAllBrands);
 router
-  .route("/admin/categories")
+  .route("/admin/brands")
   .get(isAuthenticatedUser, authorizeRoles("admin"), getAdminBrands);
 
 router
-  .route("/category/new")
+  .route("/brand/new")
   .post(isAuthenticatedUser, authorizeRoles("admin"), createBrand);
 
 router
-  .route("/category/:id")
+  .route("/brand/:id")
   .put(isAuthenticatedUser, authorizeRoles("admin"), updateBrand)
   .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteBrand)
   .get(getSingleBrand);
