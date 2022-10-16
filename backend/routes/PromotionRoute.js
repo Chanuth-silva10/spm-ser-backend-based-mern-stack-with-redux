@@ -15,7 +15,7 @@ const{
 router.route('/promotion').get(findallpromo)
 router.route('/promotion').post(createpromo)
 router.route('/promotion/:id').put(updatepromo)
-router.route('/promotion/:id/:status').patch(updatepromostatus)
+router.route('/promotion/:id/:status').put(updatepromostatus)
 router.route('/promotion/:id').delete(deletepromo)
 router.route('/promotion/search/:searchID').get(findonepromo)
 router.route('/promotion/report/bystatus/:status').get(filterpromobystatus)
