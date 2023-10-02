@@ -7,22 +7,22 @@ const {
   getSingleCategory,
   getAdminCategories,
 } = require("../controller/CategoryController");
-const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
+const { isAuthenticatedUser} = require("../middleware/auth");
 const router = express.Router();
 
 router.route("/categories").get(getAllCategories);
 router
   .route("/admin/categories")
-  .get(isAuthenticatedUser, authorizeRoles("admin"), getAdminCategories);
+  .get(isAuthenticatedUser, getAdminCategories);
 
 router
   .route("/category/new")
-  .post(isAuthenticatedUser, authorizeRoles("admin"), createCategory);
+  .post(isAuthenticatedUser, createCategory);
 
 router
   .route("/category/:id")
-  .put(isAuthenticatedUser, authorizeRoles("admin"), updateCategory)
-  .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteCategory)
+  .put(isAuthenticatedUser, updateCategory)
+  .delete(isAuthenticatedUser, deleteCategory)
   .get(getSingleCategory);
 
 module.exports = router;
